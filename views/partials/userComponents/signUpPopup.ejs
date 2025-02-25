@@ -1,0 +1,32 @@
+<div id="sign-up-pop-up" class="d-none z-1 pop-up vw-100 vh-100 position-fixed top-50 start-0 d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+        <form action="/signup" method="POST" class="relative card col-lg-6 offset-lg-3 text-center pt-4" novalidate>
+            <button type="button" id="close-sign-up-pop-up" class="btn-close close-pop-up-icon" aria-label="Close"></button>
+            <h2>Sign Up</h2>
+            <div class="mx-5 my-3 text-start">
+                <div>
+                    <label for="username-sign-up" class="form-label ms-1">Username</label>
+                    <input id="username-sign-up" type="text" name="username" class="form-control username" placeholder="Username" aria-describedby="validationServerUsernameFeedback" required>
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                        Please choose a valid username.
+                    </div>
+                </div>
+                <div class="my-3">
+                    <label for="password-sign-up" class="form-label ms-1">Password</label>
+                    <input id="password-sign-up" type="password" name="password" class="form-control password" placeholder="Password" aria-describedby="validationServerPasswordFeedback" required>
+                    <div id="validationServerPasswordFeedback" class="invalid-feedback">
+                        Please choose a valid password (It should be between 8-16 letters, including at least more than one of each alphabet/number/special characters.)
+                    </div>
+                </div>
+                <div>
+                    <label for="re-enter-password" class="form-label ms-1">Re-enter Password</label>
+                    <input id="re-enter-password" type="password" name="reEnteredPassword" class="form-control re-enter-password" placeholder="Re-enter Password" aria-describedby="validationServerReenterPasswordFeedback" required>
+                    <div id="validationServerReenterPasswordFeedback" class="invalid-feedback">
+                        The password is not the same.
+                    </div>
+                </div>  
+            </div>
+            <button class="btn basic-btn w-25 mx-auto mb-5">Sign up</button>
+        </form>
+    </div>
+</div>

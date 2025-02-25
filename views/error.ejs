@@ -1,0 +1,12 @@
+<% layout('layouts/boilerplate') %>
+<div class="text-center">
+    <div class="bg-danger-subtle m-5 p-5">
+        <h1 class="fs-2"><%= err.message %></h1>
+        <hr>
+        <div class="p-2">
+            <p>
+                <%= err.stack %>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<section id="products-display" class="row d-flex my-3">
+    <% for (let product of products) { %>
+        <div class="col-lg-3 col-6 overflow-x-auto my-4">
+            <div class="border rounded overflow-hidden">
+                <div class="product-image text-center w-100 position-relative">
+                    <a href="/products/<%= product._id %>" class="">
+                        <img class="object-fit-cover m-auto col-md-5 w-100 h-100" src="<%= product.image %>" alt="">
+                    </a>
+                    <a href="/products/<%= product._id %>/favorite" class="heart-icon position-absolute">
+                        <i class="fa-sharp fa-regular fa-heart text-white fs-5 position-absolute z-1"></i>
+                        <% if (favorite && favorite.map(p => p._id).filter(id => id == product._id)) { %>
+                            <i class="fa-sharp fa-solid fa-heart text-dark fs-5 position-absolute"></i>
+                        <% } else { %>
+                            <i class="fa-sharp fa-solid fa-heart text-secondary text-opacity-50 fs-5 position-absolute"></i>
+                        <% } %>
+                    </a>
+                </div>
+                <%- include('./productComponents/productInfo', { product }) %>
+                <% if (product.category) { %>
+                <a href="/products/<%= product._id %>/cart" class="add-to-cart-btn basic-btn d-block w-75 fs-7 text-center mx-auto mb-3 py-1">Add To Cart</a>
+                <% } %>
+            </div>
+        </div>
+    <% } %>
+</section>

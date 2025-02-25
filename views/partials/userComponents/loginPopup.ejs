@@ -1,0 +1,19 @@
+<div id="login-pop-up" class="d-none z-1 pop-up vw-100 vh-100 position-fixed top-50 start-0 d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+        <form action="/login" method="POST" class="needs-validation relative card col-lg-6 offset-lg-3 text-center pt-4" novalidate>
+            <button type="button" id="close-login-pop-up" class="btn-close close-pop-up-icon" aria-label="Close"></button>
+            <h2>Login</h2>
+            <div class="mx-5 my-3">
+                <input type="text" name="username" class="form-control my-3" placeholder="Username" required>
+                <div class="invalid-feedback">
+                    Please type your username.
+                </div>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                <div class="invalid-feedback">
+                    Please type your password.
+                </div>
+            </div>
+            <button class="btn basic-btn w-25 mx-auto mb-5">Login</button>
+        </form>
+    </div>
+</div>

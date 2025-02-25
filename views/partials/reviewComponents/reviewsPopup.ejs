@@ -1,0 +1,47 @@
+<div id="product-reviews-display" class="d-none z-1 product-reviews-display pop-up vw-100 vh-100 position-fixed top-50 start-0 d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+        <div class="product-reviews-zone pop-up-body card col-lg-6 w-75 mx-auto offset-lg-3 pt-4">
+            <button type="button" class="btn-close close-reviews-pop-up close-pop-up-icon" aria-label="Close"></button>
+            <h2 class="text-center"><span><%= reviews.length %></span> Reviews</h2>
+            <% if (reviews.length) { %>
+                <div class="text-nowrap overflow-y-auto overflow-x-hidden d-flex flex-row">
+                    <div class="col col-3 ms-5">
+                        <%- include('./reviewsSummary', { reviews }) %>
+                        <div class="my-3">
+                            <label for="form-label">Filter by:</label>
+                            <select name="review-filter" id="review-filter" class="form-control">
+                                <option value="recommended">Recommended</option>
+                                <option value="latest">Latest</option>
+                                <option value="oldest">Oldest</option>
+                                <option value="highest">Highest</option>
+                                <option value="lowest">Lowest</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col col-8 overflow-y-auto">
+                    <% for (let review of reviews) { %>
+                        <div class="col-12 mx-auto my-3 w-75 border-0">
+                            <div class="d-flex justify-content-between">
+                                <div class="fs-6 my-3">
+                                    <% for (let i = 1; i <= review.rate; i++ ) { %>
+                                        <span class="fa fa-star small-star filled-star fa-star1"></span>
+                                    <% } %>
+                                    <% if (review.rate < 5) { %>
+                                        <% for (let i = 1; i <= (5 - review.rate); i++ ) { %>
+                                            <span class="fa fa-star small-star empty-star fa-star1"></span>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                                <span class="subtext mt-3"><%= review.date %></span>
+                            </div>
+                            <p class="text-wrap"><%= review.text %></p>
+                        </div>
+                    <% } %>
+                    </div>
+                </div>
+            <% } else { %>
+                <%- include('./noReviews') %>
+            <% } %>
+        </div>
+    </div>
+</div>

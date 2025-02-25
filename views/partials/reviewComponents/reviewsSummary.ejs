@@ -1,0 +1,67 @@
+<div class="my-3">
+    <div class="my-auto px-3 pb-3 fs-3">
+        <span class="fa fa-star checked"></span>
+        <span>
+            <% if (reviews.length) { %>
+                <%= (reviews.reduce((a, c) => a + c.rate, 0) / reviews.length).toLocaleString('en', { maximumFractionDigits: 2 }) %>
+            <% } else { %>
+                <%= 0 %>
+            <% } %>
+            <span class="text-body-tertiary">|</span>
+            <span class="text-muted fs-4"> <%= reviews.length %></span>
+        </span>
+    </div>
+    <div>
+        <input type="text" class="d-none reviews-count" value="<%= reviews.length %>">
+        <div>
+            <label for="star5" class="rate-bar-label">5</label>
+            <span id="star5" role="button" class="rate-bar rate-bar-body z-0 d-inline-block rounded bg-secondary-subtle position-relative">
+                <span class="rate-bar rate-bar-positive z-1 d-inline-block rounded position-absolute top-0 left-0"></span>
+                <input type="text" class="d-none" value="<%= reviews.filter(review => review.rate === 5).length %>">
+            </span>
+            <span class="rate-percentage text-muted mx-1">
+                <%= reviews.length ? Math.round((reviews.filter(review => review.rate === 5).length / reviews.length) * 100) : 0 %>%
+            </span>
+        </div>
+        <div>
+            <label for="star4" class="rate-bar-label">4</label>
+            <span id="star4" role="button" class="rate-bar rate-bar-body z-0 d-inline-block rounded bg-secondary-subtle position-relative">
+                <span class="rate-bar rate-bar-positive z-1 d-inline-block rounded position-absolute top-0 left-0"></span>
+                <input type="text" class="d-none" value="<%= reviews.filter(review => review.rate === 4).length %>">
+            </span>
+            <span class="rate-percentage text-muted mx-1">
+                <%= reviews.length ? Math.round((reviews.filter(review => review.rate === 4).length / reviews.length) * 100) : 0 %>%
+            </span>
+        </div>
+        <div>
+            <label for="star3" class="rate-bar-label">3</label>
+            <span id="star3" role="button" class="rate-bar rate-bar-body z-0 d-inline-block rounded bg-secondary-subtle position-relative">
+                <span class="rate-bar rate-bar-positive z-1 d-inline-block rounded position-absolute top-0 left-0"></span>
+                <input type="text" class="d-none" value="<%= reviews.filter(review => review.rate === 3).length %>">
+            </span>
+            <span class="rate-percentage text-muted mx-1">
+                <%= reviews.length ? Math.round((reviews.filter(review => review.rate === 3).length / reviews.length) * 100) : 0 %>%
+            </span>
+        </div>
+        <div>
+            <label for="star2" class="rate-bar-label">2</label>
+            <span id="star2" role="button" class="rate-bar rate-bar-body z-0 d-inline-block rounded bg-secondary-subtle position-relative">
+                <span class="rate-bar rate-bar-positive z-1 d-inline-block rounded position-absolute top-0 left-0"></span>
+                <input type="text" class="d-none" value="<%= reviews.filter(review => review.rate === 2).length %>">
+            </span>
+            <span class="rate-percentage text-muted mx-1">
+                <%= reviews.length ? Math.round((reviews.filter(review => review.rate === 2).length / reviews.length) * 100) : 0 %>%
+            </span>
+        </div>
+        <div>
+            <label for="star1" class="rate-bar-label">1</label>
+            <span id="star1" role="button" class="rate-bar rate-bar-body z-0 d-inline-block rounded bg-secondary-subtle position-relative">
+                <span class="rate-bar rate-bar-positive z-1 d-inline-block rounded position-absolute top-0 left-0"></span>
+                <input type="text" class="d-none" value="<%= reviews.filter(review => review.rate === 1).length %>">
+            </span>
+            <span class="rate-percentage text-muted mx-1">
+                <%= reviews.length ? Math.round((reviews.filter(review => review.rate === 1).length / reviews.length) * 100) : 0 %>%
+            </span>
+        </div>
+    </div>
+</div>

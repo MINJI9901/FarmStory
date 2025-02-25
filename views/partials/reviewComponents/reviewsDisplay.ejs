@@ -1,0 +1,15 @@
+<section id="reviews" class="row container-fluid border border-solid p-2 mx-auto">
+    <% for (let review of reviews.slice(0, 8)) { %>
+        <div class="card card-body col-md-5 col-sm-12 m-2 border-0">
+            <div class="row">
+                <span class="col">
+                    <span class="fa fa-star small-star fa-star1 fs-6"></span>
+                    <%= review.rate %> 
+                </span>
+                <span class="subtext d-inline-block col text-end"><%= review.date %></span>
+            </div>
+            <div class="my-3"><%= review.text %></div>
+        </div>
+    <% } %>
+    <button class="product-reviews-button basic-btn">More Reviews</button>
+</section>

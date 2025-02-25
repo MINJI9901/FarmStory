@@ -1,0 +1,18 @@
+<div class="my-2 px-3">
+    <h2 class="fs-6 my-auto">
+        <a href="/products/<%= product._id %>" class=""><%= product.name %></a>
+    </h2>
+</div>
+<div class="text-info-emphasis fw-bold px-3">$ <%= product.price.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></div>
+<div class="product-description my-2 px-3"><%= product.description %></div>
+<div class="my-auto px-3 pb-3 fs-7">
+    <span class="fa fa-star checked"></span>
+    <span>
+        <% if (product.reviews.length) { %>
+            <%= (product.reviews.reduce((a, c) => a + c.rate, 0) / product.reviews.length).toLocaleString('en', { maximumFractionDigits: 2 }) %>
+        <% } else { %>
+            <%= 0 %>
+        <% } %>
+    </span>
+    <a href="#product-reviews-display" class="subtext product-reviews-button">(<%= product.reviews.length %>)</a>
+</div>

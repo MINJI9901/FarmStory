@@ -1,0 +1,51 @@
+<% layout('layouts/boilerplate') %>
+<div class="row text-center mb-5">
+    <h1 class="my-3"><%= farm.name %></h1>
+    <h2 class="mb-5">New Product</h2>
+    <div class="card col-lg-6 offset-lg-3 p-5 mb-5">
+        <h2 class="mb-4">Register My farm Information</h2>
+        <form action="/farms/<%= farm._id %>/products" method="POST" class="needs-validation" novalidate>
+            <div class="my-2">
+                <!-- <label for="name" class="form-label">name</label> -->
+                <input type="text" id="name" class="form-control" name="product[name]" placeholder="Name of Product" required>
+                <div class="invalid-feedback">
+                    Please choose a name of product.
+                </div>
+            </div>
+            <div class="my-2 mb-3">
+                <!-- <label for="location" class="form-label">Location</label> -->
+                <input type="number" id="price" class="price-input form-control" name="product[price]" placeholder="Price(unit)" required>
+                <div class="invalid-feedback">
+                    Please provide a price.
+                </div>
+            </div>
+            <div class="my-2 mb-3">
+                <!-- <input type="file" id="image" class="form-control" name="farm[image]"> -->
+                <input type="text" id="image" class="form-control" name="product[image]" placeholder="Image Link" required>
+                <div class="invalid-feedback">
+                    Please insert a link to product image.
+                </div>
+            </div>
+            <div class="my-2 mb-3 form-floating">
+                <select name="product[category]" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <% for (let cate of categoryList) { %>
+                        <option value="<%= cate %>"><%= cate %></option>
+                    <% } %>
+                </select>
+                <label for="floatingSelect">Category</label>
+            </div>
+            <div class="my-2 mb-3">
+                <textarea type="text" id="description" class="form-control" name="product[description]" rows=4 placeholder="description" required></textarea>
+                <div class="invalid-feedback">
+                    Please write introcudution on the product.
+                </div>
+            </div>
+
+            <button class="btn btn-warning text-white fw-bold my-3">Register</button>
+            <a href="/farms/<%= farm._id %>" class="btn text-white fw-bold bg-dark-subtle ms-2">Back</a>
+        </form>
+        <!-- <footer>
+            
+        </footer> -->
+    </div>
+</div>

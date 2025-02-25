@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate') %>
+<div class="row mb-5">
+    <h1 class="text-center my-5">Provide Your Own Farm to People!</h1>
+    <div class="card col-lg-6 offset-lg-3 p-5 mb-5">
+        <h2 class="mb-4">Register My farm Information</h2>
+        <form action="/farms" method="POST" class="needs-validation" novalidate>
+            <div class="my-2">
+                <!-- <label for="name" class="form-label">name</label> -->
+                <input type="text" id="name" class="form-control" name="farm[name]" placeholder="name" required>
+                <!-- name="farm[name]" => Group things under 'farm' -->
+                <!-- If I have multiple 'farm[~]', when our data is sent to our express app, to the server via 'POST' request-->
+                <!-- everything in the request.body will be stored under farm -->
+                <div class="invalid-feedback">
+                    Please choose a name of farm.
+                </div>
+            </div>
+            <div class="my-2 mb-3">
+                <!-- <label for="location" class="form-label">Location</label> -->
+                <input type="text" id="location" class="form-control" name="farm[location]" placeholder="location" required>
+                <div class="invalid-feedback">
+                    Please provide a valid location.
+                </div>
+            </div>
+            <div class="my-2 mb-3">
+                <!-- <input type="file" id="image" class="form-control" name="farm[image]"> -->
+                <input type="text" id="image" class="form-control" name="farm[image]" placeholder="Image Link" required>
+                <div class="invalid-feedback">
+                    Please insert a link to farm image.
+                </div>
+            </div>
+            <div class="my-2 mb-3">
+                <textarea type="text" id="description" class="form-control" name="farm[description]" rows=4 placeholder="description" required></textarea>
+                <div class="invalid-feedback">
+                    Please write introcudution on your farm.
+                </div>
+            </div>
+
+            <button class="btn btn-warning text-white fw-bold my-3">Register</button>
+            <a href="/farms" class="btn text-white fw-bold bg-dark-subtle ms-2">All Farms</a>
+        </form>
+        <!-- <footer>
+            
+        </footer> -->
+    </div>
+</div>

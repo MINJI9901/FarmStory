@@ -1,0 +1,19 @@
+<% layout('layouts/boilerplate') %>
+<table>
+    <thead>
+        <tr>
+            <td>Category</td>
+            <td>Name</td>
+            <td>Price</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (let product of categorizedProducts) { %>
+            <tr>
+                <td><%= product.category %></td>
+                <td><%= product.name %></td>
+                <td><%= product.price %></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

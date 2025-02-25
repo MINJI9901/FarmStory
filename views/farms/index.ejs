@@ -1,0 +1,18 @@
+<% layout('layouts/boilerplate') %>
+<head>
+    <h1>FarmStory <a href="/farms/new" class="basic-btn fs-6">Create</a></h1>
+</head>
+<div class="container mb-5">
+    <div class="row">
+    <% for (let farm of farms) { %>
+        <div class="card card-body col col-md-3 col-sm-12 m-2">
+            <a href="/farms/<%= farm._id %>"><img class="img-fluid" src="<%= farm.image %>" alt=""></a>
+            <div class="imformation">
+                <h2><a href="/farms/<%= farm._id %>" class=""><%= farm.name %></a></h2>
+                <h3><%= farm.location %></h3>
+                <!-- <p><%= farm.description %></p> -->
+            </div>
+        </div>
+    <% } %>
+    </div>
+</div>

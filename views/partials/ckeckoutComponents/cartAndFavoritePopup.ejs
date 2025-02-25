@@ -1,0 +1,49 @@
+<div id="cart-favorite-pop-up" class="d-none z-1 cart-pop-up pop-up vw-100 vh-100 position-fixed top-50 start-0 d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+        <div class="card col-lg-6 w-75 mx-auto offset-lg-3 pt-4">
+            <button type="button" id="close-cart-pop-up" class="btn-close close-pop-up-icon" aria-label="Close"></button>
+            <h2 class="text-center">
+                <a href="#cart" id="cart-toggle">Cart</a>
+                <span class="text-body-tertiary mx-3">|</span>
+                <a href="#favorite" id="favorite-toggle" class="text-body-tertiary">Favorite</a>
+            </h2>
+            <!-- <div class="carousel slide">
+                <div class="carousel-inner"> -->
+                    <setion id="cart" class="pop-up-body overflow-y-auto">
+                        <% if (cart) { %>
+                            <% for (let product of cart) { %>
+                                <div class="row mx-auto my-5">
+                                    <img src="<%= product.image %>" class="col-3" alt="">
+                                    <div class="col-7">
+                                        <%- include('../productComponents/productInfo', { product }) %>
+                                    </div>
+                                    <div class="col-2 my-auto">
+                                        <input type="text" class="product-price d-none" value="<%= product.price %>">
+                                        <input type="number" class="form-control qty-per-product d-inline-block w-50 mx-auto my-2" value="<%= product.qty %>">
+                                        <div>$ <span class="total-price-per-product"><%= product.price.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></span></div>
+                                    </div>
+                                </div>
+                            <% } %>
+                            <div class="row sticky-bottom border-top bg-white p-3">
+                                <div class="col-4 d-flex justify-content-evenly fs-5 my-auto border-end">
+                                    <span class="text-muted">Items</span>
+                                    <span class="products-qty">10</span>
+                                </div>
+                                <div class="col-4 d-flex justify-content-evenly fs-5 my-auto">
+                                    <span class="text-muted">Total</span>
+                                    <span>$ <span class="total-price">123.98</span></span>
+                                </div>
+                                <button class="btn basic-btn col-3 w-25 py-2">Check Out</button>
+                            </div>
+                        <% } %>
+                    </setion>
+                    <section id="favorite" class="d-none pop-up-body overflow-y-auto">
+                        <% if (favorite) { %>
+                        <%- include('../products', { products: favorite }) %>
+                        <% } %>
+                    </section>
+                <!-- </div>
+            </div> -->
+        </div>
+    </div>
+</div>

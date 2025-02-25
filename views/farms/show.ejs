@@ -1,0 +1,102 @@
+<% layout('layouts/boilerplate') %>
+<h1 class="my-2">Farm Show</h1>
+
+<div class="container mb-5">
+    <section class="row">
+        <img class="farm-main-image object-fit-contain position-sticky top-0 mt-4 col-md-5" src="<%= farm.image %>" alt="">
+        <div class="card col-md-7 my-4">
+            <div class="list-group list-group-flush">
+                <h2 class="list-group-item"><%= farm.name %></h2>
+                <p class="list-group-item text-secondary"><%= farm.location %></p>
+                <p class="list-group-item"><%= farm.description %></p>
+                <div class="list-group-item">
+                    <h4>
+                        <span class="fa fa-star fa-star1 fs-6"></span>
+                        <span><%= (allReviews.reduce((a, c) => a + c.rate, 0) / allReviews.length).toLocaleString('en', { maximumFractionDigits: 2 }) %></span>
+                        <a href="#reviews" class="subtext">(<%= allReviews.length %>)</a>
+                    </h4>
+                </div>
+                <footer class="list-group-item my-3">
+                    <a class="btn btn-info" href="/farms/<%= farm._id %>/edit">Edit Farm</a>
+                    <a class="btn btn-warning" href="/farms/<%= farm._id %>/products/new">Add a Product</a>
+                    <form class="form-check-inline" action="/farms/<%= farm._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-secondary">Delete</button>
+                    </form>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <%- include('../partials/products', { products }) %>
+    <% if (allReviews.length) { %>
+        <%- include('../partials/reviewComponents/reviewsDisplay', { reviews: allReviews }) %>
+    <% } else { %>
+        <div class="border py-5">
+            <%- include('../partials/reviewComponents/noReviews') %>
+        </div>
+    <% } %>
+
+    <%- include('../partials/reviewComponents/reviewsPopup', { reviews: allReviews }) %>
+
+
+
+    
+    <!-- <div id="review-pop-up" class="d-none pop-up vw-100 vh-100 position-fixed top-50 start-0 d-flex justify-content-center align-items-center">
+        <div class="row w-100">
+            <form action="/farms/<%= farm.id %>/reviews" method="POST" class="relative card col-lg-6 offset-lg-3 text-center pt-4">
+                <i id="close-review-pop-up" class="fa-solid fa-x position-absolute"></i>
+                <h2>Share Your Exprience!</h2>
+                <div class="fs-1 my-3">
+                    <span class="fa fa-star ratingStar fa-star1"></span>
+                    <span class="fa fa-star ratingStar fa-star2"></span>
+                    <span class="fa fa-star ratingStar fa-star3"></span>
+                    <span class="fa fa-star ratingStar fa-star4"></span>
+                    <span class="fa fa-star ratingStar fa-star5"></span>
+                    <input id="rateInput" name="rate" type="text" class="d-none">
+                </div>
+                <textarea name="text" id="" placeholder="Write Information or Opinions That You Want to Share!" cols="50" rows="5" class="rounded p-2 mt-3 mb-5"></textarea>
+                <button class="btn btn-info w-25 mx-auto mb-5">Submit</button>
+            </form>
+        </div>
+    </div> -->
+    
+</div>
+
+<!-- <ul>
+    <img src="<%= farm.image %>" alt="">
+    <li>name: <%= farm.name %></li>
+    <li>Location: <%= farm.location %></li>
+    <li><%= farm.description %></li>
+</ul>
+<footer>
+    <a href="/farms/<%= farm._id %>/edit">Edit farm</a>
+    <a href="/farms">All farms</a>
+    <form action="/farms/<%= farm._id %>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+</footer>
+
+
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <%if(farm.image.length) {%>
+            <img class="img-fluid" alt="" src="<%=farm.image%>">
+            <% }else {%>
+            <img class="img-fluid" alt=""
+                src="https://res.cloudinary.com/douqbebwk/image/upload/v1600103881/YelpCamp/lz8jjv2gyynjil7lswf4.png">
+            <% } %>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-name"><%= farm.name %> </h5>
+
+                <p class="card-text"><%= farm.description %></p>
+                <p class="card-text">
+                    <small class="text-muted"><%= farm.location%></small>
+                </p>
+                <a class="btn btn-primary" href="/farms/<%=farm._id%>">View <%=farm.name%></a>
+            </div>
+        </div>
+    </div>
+</div> -->

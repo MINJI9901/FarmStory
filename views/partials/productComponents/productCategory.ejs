@@ -1,0 +1,8 @@
+<nav class="product-category bg-white shadow position-sticky top-10 border rounded-pill mb-4 p-2 z-1">
+    <div class="d-flex justify-content-end align-items-center position-relative">
+        <h1 class="position-absolute start-50 transform-x-50 text-secondary fs-5 ps-3 my-auto">All Products</h1>
+        <% for (let category of categoryList) { %>
+            <a class="text-info-emphasis text-center mx-2" href="/products?category=<%= category %>"><%= category.charAt(0).toUpperCase() + category.slice(1) %></a>
+        <% } %>
+    </div>
+</nav>

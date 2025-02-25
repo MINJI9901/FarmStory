@@ -1,0 +1,44 @@
+<nav class="main-navbar navbar navbar-expand-lg border-bottom mb-4 py-2">
+    <div class="container-fluid">
+      <a class="navbar-brand text-secondary fs-3 fw-bold ps-5" href="/products">FarmStory</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <section class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav pe-3">
+          <a class="nav-item nav-link text-info-emphasis" href="/">Home</a>
+          <a class="nav-item nav-link text-info-emphasis" href="/farms">Farms</a>
+          <a class="nav-item nav-link text-info-emphasis" href="/products">Products</a>
+          <a class="nav-item nav-link text-info-emphasis" href="/farms/new">New Farm</a>
+        </div>
+        <div class="navbar-nav fw-light fs-7 text-nowrap">
+          <% if (!user) { %>
+            <a class="nav-item nav-link login-link" href="#">Login</a>
+            <a class="nav-item nav-link sign-up-link" href="#">Sign up</a>
+          <% }%>
+        </div>
+      </section>
+      <div class="dropdown user-dropdown me-5">
+        <div class="icons d-inline-block mx-2">
+          <a href="#" class="cart-button">
+            <i class="fa-regular fa-heart fs-7"></i>
+            <span class="px-1">|</span>
+            <i class="fa-solid fa-cart-shopping fs-7"></i>
+          </a>
+        </div>
+        <% if (user) { %>
+        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../../public/img/rabbit_favicon.ico" alt="" class="d-inline-block w-25 h-25 rounded-pill bg-dark">
+          <%= user %>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Modify Information</a></li>
+          <li><a class="dropdown-item" href="#">My Reviews</a></li>
+          <li><a class="dropdown-item" href="#">My Last Orders</a></li>
+          <li><a class="dropdown-item logout-link text-muted" href="/logout">Log out</a></li>
+        </ul>
+        <% } %>
+      </div>
+      
+    </div>
+</nav>
